@@ -1,10 +1,10 @@
-SIG:42.5 POS:100.0 VEL:20.5  // Valid packet
-SIG:85.2 POS:150.3 VEL:15.0  // Valid
-SIG:-10.0 POS:200.5 VEL:10.2  // Invalid (negative signal)
-SIG:60.0 POS:abc VEL:5.0  // Invalid (non-numeric position)
-SIG:75.4 POS:300.0 VEL:25.8  // Valid
-SIG:30.1 POS:400.2 VEL:-5.0  // Invalid (negative velocity)
-SIG:95.0  // Invalid (incomplete, missing POS/VEL)
-SIG:50.5 POS:500.0 VEL:30.0  // Valid
-SIG:20.0 POS:600.5 VEL:35.2  // Valid
-SIG:invalid POS:700.0 VEL:40.0  // Invalid (non-numeric signal)
+SIG:42.5 POS:100.0 VEL:20.5
+SIG:85.2 POS:150.3 VEL:15.0
+SIG:-10.0 POS:200.5 VEL:10.2
+SIG:60.0 POS:abc VEL:5.0
+SIG:75.4 POS:300.0 VEL:25.8
+SIG:30.1 POS:400.2 VEL:-5.0
+SIG:95.0
+SIG:50.5 POS:500.0 VEL:30.0
+SIG:20.0 POS:600.5 VEL:35.2
+SIG:invalid POS:700.0 VEL:40.0
