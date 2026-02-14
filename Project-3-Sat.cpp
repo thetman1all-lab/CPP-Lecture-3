@@ -21,6 +21,18 @@
 
 // Autonomy Relevance: Simulates parsing satellite telemetry for fault detection—invalid data could indicate jamming or failure, requiring real-time rejection for network stability.
 
+// Signal Packet Key:
+// 1. Valid packet
+// 2. Valid
+// 3. Invalid (negative signal)
+// 4. Invalid (non-numeric position)
+// 5. Valid
+// 6. Invalid (negative velocity)
+// 7. Invalid (incomplete, missing POS/VEL)
+// 8. Valid
+// 9. Valid
+// 10. Invalid (non-numeric signal)
+
 // Validation function to check if input is valid
 bool validatePacket(const std::string& packet) {
     
