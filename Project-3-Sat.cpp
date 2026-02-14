@@ -14,6 +14,7 @@
 // Function 3: double computeAverage(const double signals[], int count) — Average array of signals (use pass-by-const-reference for efficiency).
 
 // Store up to 10 signals in an array; use I/O and conditionals for input handling.
+
 // Handle errors (e.g., invalid packet discards without crash).
 
 // Under 100 lines; clean, commented code.
@@ -21,7 +22,9 @@
 // Autonomy Relevance: Simulates parsing satellite telemetry for fault detection—invalid data could indicate jamming or failure, requiring real-time rejection for network stability.
 
 // Validation function to check if input is valid
-bool validatePacket(const std::string& packet) {}
+bool validatePacket(const std::string& packet) {
+    
+}
 
 // Extract signal value
 double parseSignal(const std::string& packet) {}
