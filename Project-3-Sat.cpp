@@ -55,6 +55,54 @@ void loadTelemetryFile(const std::string& filename) {
     if (!file) {
         std::cerr << "Error: Could not open file!\n";
     }
+
+    std::string line;
+    while (std::getline(file, line)) {
+        // Skip empty lines or comments (lines starting with //)
+        if (line.empty() || line.find("//") == 0) {
+            continue;
+        }
+
+        std::istringstream iss(line);   // treat the line as a stream
+        std::string token;
+
+        double sig = 0.0, pos = 0.0, vel = 0.0;
+        bool hasSig = false, hasPos = false, hasVel = false;
+
+        while (iss >> token) {          // split on spaces
+            // token will be something like "SIG:42.5"
+            size_t colonPos = token.find(':');
+            if (colonPos == std::string::npos) continue;   // no colon → skip
+
+            std::string key = token.substr(0, colonPos);
+            std::string valueStr = token.substr(colonPos + 1);
+
+            // Convert value to double
+            double value = 0.0;
+            try {
+                value = std::stod(valueStr);
+            } catch (...) {
+                continue;   // bad number → skip
+            }
+
+            if (key == "SIG") { sig = value; hasSig = true; }
+            else if (key == "POS") { pos = value; hasPos = true; }
+            else if (key == "VEL") { vel = value; hasVel = true; }
+        }
+
+        // Now you have the three values for this packet
+        std::cout << "Packet → SIG: " << sig 
+                  << "  POS: " << pos 
+                  << "  VEL: " << vel << "\n";
+
+        // You can now call your functions here:
+        // if (validatePacket(line)) {
+        //     double signal = parseSignal(line);
+        //     // store signal for averaging
+        // }
+    }
+
+    file.close();
 }
 
 // Validation function to check if input is valid
