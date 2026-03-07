@@ -17,7 +17,7 @@ int main() {
 
     outputFile.close(); // Always close your files damnit!
 
-    std::cout << "Data written successdully." << std::endl;
+    std::cout << "Data written successfully." << std::endl;
 
     return 0;
 }
