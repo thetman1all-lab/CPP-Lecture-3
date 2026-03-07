@@ -4,6 +4,7 @@
 #include <sstream>
 #include <vector>
 
+//----------------------------------------------------------------------------------------------------------------------
 // Validation function to check if file can open
 bool ValidateFile(const std::string& filename) {
     std::ifstream file(filename);
@@ -18,6 +19,7 @@ bool ValidateFile(const std::string& filename) {
     return true;
 }
 
+//----------------------------------------------------------------------------------------------------------------------
 // Packet content validation
 bool ValidatePacket(const std::string& packet) {
     // Check: Length > 10, contains "SIG:", or no negatives
@@ -80,16 +82,23 @@ int main(){
     // If file cannot be opened (false), negate (true) and return 1
     if (!ValidateFile(filename)) return 1;
 
-    // 
+    // Link file to program to extract data from it
     std::ifstream inputFile(filename);
+
+    // Declare a line variable
     std::string line;
+
+    // std::getline() continues reading until it hits a newline character \n
     while (std::getline(inputFile, line)) {
+        // If packet line is true, then print the line of content
         if (ValidatePacket(line)) {
             std::cout << "Valid packet: " << line << std::endl;
         } else {
             std::cout << "Invalid packet: " << line << std::endl;
         }
     }
+
+    // Always close the file when finished
     inputFile.close();
 
     return 0;
