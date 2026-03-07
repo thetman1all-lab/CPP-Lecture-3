@@ -44,6 +44,7 @@ bool ValidatePacket(const std::string& packet) {
 
         if (sig < 0) return false;
     }
+    return true;
 }
 
 int main() {
