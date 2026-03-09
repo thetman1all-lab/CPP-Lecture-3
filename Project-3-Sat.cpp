@@ -51,12 +51,15 @@
 
 // File validation function
 void loadTelemetryFile(const std::string& filename) {
+
     std::ifstream file(filename);
+
     if (!file) {
         std::cerr << "Error: Could not open file!\n";
     }
 
     std::string line;
+
     while (std::getline(file, line)) {
         // Skip empty lines or comments (lines starting with //)
         if (line.empty() || line.find("//") == 0) {
@@ -123,8 +126,20 @@ double parseSignal(const std::string& packet) {
     return std::stod(val);
 }
 
-// Average srray of signals (use pass-by-const-reference for efficiency)
-double computeAverage(const double signals[], int count) {}
+// Average array of signals (use pass-by-const-reference for efficiency)
+double computeAverage(const double signals[], int count) {
+    
+}
+
+bool MenuInputCheck(int menu_input) {
+    // Error handling choice input
+        if (!(std::cin >> menu_input)) {
+            std::cin.clear(); // Clear error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore bad input
+            std::cout << "Invalid input! Please enter an integer.\n";
+            return true;
+        }
+}
 
 int main() {
 
@@ -133,13 +148,12 @@ int main() {
     // Main do/while loop
     do {
 
-        // Error handling choice input
-        if (!(std::cin >> menu_input)) {
-            std::cin.clear(); // Clear error flag
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore bad input
-            std::cout << "Invalid input! Please enter an integer.\n";
-            continue; // Skip
+        if (MenuInputCheck(menu_input)) {
+            continue;
         }
+
+        
+
 
     } while(menu_input !=3);
 
