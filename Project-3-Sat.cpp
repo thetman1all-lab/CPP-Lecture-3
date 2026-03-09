@@ -133,7 +133,7 @@ int main() {
     // Main do/while loop
     do {
 
-        // Error handling shoice input
+        // Error handling choice input
         if (!(std::cin >> menu_input)) {
             std::cin.clear(); // Clear error flag
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore bad input
